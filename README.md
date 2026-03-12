@@ -11,11 +11,11 @@
 ## Grupo H.M.N.R.V.
 
 ## 👨‍🎓 Integrantes: 
-- <a href="https://github.com/nadnakvie">Heitor Exposito de Sousa</a>
-- <a href="https://www.linkedin.com/company/inova-fusca">Marco Antônio Rodrigues Siqueira</a>
-- <a href="https://www.linkedin.com/company/inova-fusca">Nádia Nakamura Vieira</a> 
-- <a href="https://www.linkedin.com/company/inova-fusca">Rafael Bassani</a> 
-- <a href="https://www.linkedin.com/company/inova-fusca">Vinicius Xavier da Silva</a>
+- <a href="https://github.com/NeuralXP">Heitor Exposito de Sousa</a>
+- <a href="https://github.com/MarcoR-S">Marco Antônio Rodrigues Siqueira</a>
+- <a href="https://github.com/nadnakvie">Nádia Nakamura Vieira</a> 
+- <a href="https://github.com/optimizasavings-byte">Rafael Bassani</a> 
+- <a href="https://github.com/ViniciusX22">Vinicius Xavier da Silva</a>
 
 ## 📜 Descrição
 
