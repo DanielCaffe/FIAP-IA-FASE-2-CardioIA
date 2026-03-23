@@ -285,7 +285,7 @@ def executar_estatisticas_r() -> None:
         return
 
     try:
-        resultado = subprocess.run([rscript_path, "estatisticas_basicas.r"], capture_output=True, text=True, check=True)
+        resultado = subprocess.run([rscript_path, "src/estatisticas_basicas.r"], capture_output=True, text=True, check=True)
         print(f"{VERDE}== Estatísticas (R) =={RESET}")
         print(resultado.stdout)
     except subprocess.CalledProcessError as exc:
@@ -307,7 +307,7 @@ def consultar_previsao_tempo() -> None:
         return
 
     try:
-        resultado = subprocess.run([rscript_path, "previsao_do_tempo.r", cidade], capture_output=True, text=True, check=True)
+        resultado = subprocess.run([rscript_path, "src/previsao_do_tempo.r", cidade], capture_output=True, text=True, check=True)
         print(f"{VERDE}== Previsão do tempo (R) =={RESET}")
         print(resultado.stdout)
     except subprocess.CalledProcessError as exc:

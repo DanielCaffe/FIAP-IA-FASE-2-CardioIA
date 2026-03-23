@@ -37,9 +37,3 @@ estatisticas_por_cultura <- dados %>%
 
 cat("== Estatísticas por Cultura ==\n")
 print(estatisticas_por_cultura)
-
-url = "https://api.open-meteo.com/v1/forecast?latitude=51.5074&longitude=-0.1278&current_weather=true"
-response = requests.get(url)
-data = response.json()
-
-print(data)

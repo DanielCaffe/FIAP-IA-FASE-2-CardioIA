@@ -21,13 +21,13 @@
 
 Aplicação CLI Python para gestão de culturas agrícolas com foco em soja e café. O sistema permite definir cultura, calcular área (retângulo/triângulo/círculo), estimar insumos (adubo, água, fosfato) e configurar produtos de manejo (herbicida/pesticida/fertilizante), além de calcular resultados financeiros (lucro/gastos).
 
-A estrutura foi refatorada para uso de dados organizados em objetos (não mais `info`/`info2`), com persistência intermediária por CSV (`dados_plantio.csv`) para análise adicional em R via scripts `estatisticas_basicas.r` e `previsao_do_tempo.r`.
+A estrutura foi refatorada para uso de dados organizados em objetos com persistência intermediária por CSV (`dados_plantio.csv`) para análise adicional em R via scripts `estatisticas_basicas.r` e `previsao_do_tempo.r`.
 
 A interface oferece menu interativo no terminal com cores ANSI, validação de entrada segura e opções de CRUD de dados. A execução produz relatórios de custos, previsão meteorológica e gráficos simples via R.
 
 ## 🔧 Como executar o código
 
-`cd c:\Users\SAMSUNG\Documentos\00_FIAP_fase_1`
+`cd nome-diretorio-arquivo\nome-arquivo`
 `python menu_principal.py`
 
 Requisitos: Python 3.8+, pandas, R instalado com `Rscript` no PATH.
