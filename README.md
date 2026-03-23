@@ -19,19 +19,23 @@
 
 ## 📜 Descrição
 
-Este projeto foi desenvolvido pela equipe 54 da FIAP, com o objetivo de criar uma aplicação em Python voltada para apoiar a gestão de culturas agrícolas dentro do contexto da Agricultura Digital. A aplicação foi projetada para auxiliar produtores rurais na organização de dados relacionados ao plantio, manejo de insumos e análise de custos e lucros das lavouras.
+Aplicação CLI Python para gestão de culturas agrícolas com foco em soja e café. O sistema permite definir cultura, calcular área (retângulo/triângulo/círculo), estimar insumos (adubo, água, fosfato) e configurar produtos de manejo (herbicida/pesticida/fertilizante), além de calcular resultados financeiros (lucro/gastos).
 
-O sistema foi desenvolvido considerando duas culturas agrícolas, sendo elas a soja e [___] . A aplicação permite que o usuário registre informações sobre a plantação, como área cultivada, produtos utilizados no manejo da lavoura e métodos de aplicação de insumos.
+A estrutura foi refatorada para uso de dados organizados em objetos (não mais `info`/`info2`), com persistência intermediária por CSV (`dados_plantio.csv`) para análise adicional em R via scripts `estatisticas_basicas.r` e `previsao_do_tempo.r`.
 
-Os dados da aplicação estão organizados utilizando vetores (info e info2), possibilitando o armazenamento estruturado das informações referentes às culturas, insumos e operações agrícolas, para serem trabalhados e analisados, futuramente, em R. Além disso, o sistema conta com um menu interativo no terminal, que permite ao usuário navegar entre diferentes funcionalidades da aplicação. Para vizualizar os dados, utilize o comando print(info,info2) que seguirá a ordem: areaTotal; herbicida; pesticida; meiodeaplicacao; nome; lucro, pesoTotal, qtdherbicida, qtdpesticida, gastosIniciais.
+A interface oferece menu interativo no terminal com cores ANSI, validação de entrada segura e opções de CRUD de dados. A execução produz relatórios de custos, previsão meteorológica e gráficos simples via R.
 
 ## 🔧 Como executar o código
 
-O código funciona sem nenhuma biblioteca e exige somente o uso do python, de preferência em alguma IDE.
+`cd c:\Users\SAMSUNG\Documentos\00_FIAP_fase_1`
+`python menu_principal.py`
+
+Requisitos: Python 3.8+, pandas, R instalado com `Rscript` no PATH.
 
 
 ## 🗃 Histórico de lançamentos
 
+* 0.3.0 - 22/03/2026
 * 0.2.0 - 12/03/2026
 * 0.1.0 - 07/03/2026
 
