@@ -1,12 +1,2 @@
-pandas == 1.5.3
-requests == 2.31.0
-subprocess.run == 0.0.1
-dplyr == 1.0.10
-jsonlite == 1.8.4
-httr == 1.4.5
-rlang == 1.0.7
-math == 3.12.0
-shutil == 1.0.1
-dataclasses == 0.8
-typing == 3.10.0
-requests == 2.31.0
+pandas
+subprocess.run

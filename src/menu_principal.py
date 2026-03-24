@@ -6,7 +6,6 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 import pandas as pd
-import requests
 
 # Caracteres ANSI para estilização no terminal
 VERDE = "\033[92m"
@@ -78,7 +77,8 @@ def validar_float(mensagem: str, minimo: float = 0.0) -> float:
     """Solicita um float validado ao usuário."""
     while True:
         try:
-            valor = float(input(f"{AZUL}{mensagem}{RESET}").replace(",", ".").strip())
+            valor = float(
+                input(f"{AZUL}{mensagem}{RESET}").replace(",", ".").strip())
             if valor < minimo:
                 raise ValueError(f"Valor deve ser >= {minimo}.")
             return valor
@@ -104,7 +104,8 @@ def escolher_cultura(state: FarmData) -> None:
         print(f"{AZUL}Culturas existentes:{RESET}")
         for i, c in enumerate(state.culturas):
             print(f"{i+1} - {c.cultura or 'Não definida'} (Área: {c.area:.2f} m²)")
-        opcao = validar_int(f"{AZUL}Escolher cultura existente [1-{len(state.culturas)}] ou 0 para nova: {RESET}", list(range(0, len(state.culturas)+1)))
+        opcao = validar_int(
+            f"{AZUL}Escolher cultura existente [1-{len(state.culturas)}] ou 0 para nova: {RESET}", list(range(0, len(state.culturas)+1)))
         if opcao == 0:
             # Nova cultura
             pass  # Continua para escolher tipo
@@ -114,7 +115,8 @@ def escolher_cultura(state: FarmData) -> None:
             return
 
     # Escolher tipo de cultura
-    opcao = input(f"{AZUL}Escolha a cultura [C]afé / [S]oja: {RESET}").strip().upper()
+    opcao = input(
+        f"{AZUL}Escolha a cultura [C]afé / [S]oja: {RESET}").strip().upper()
     if opcao == "C":
         cultura_nome = "cafe"
     elif opcao == "S":
@@ -179,7 +181,8 @@ def definir_herbicida(state: FarmData) -> None:
         print(f"{VERMELHO}Nenhuma cultura ativa selecionada.{RESET}")
         return
     print(f"{AZUL}Escolha o tipo de ervas daninhas:{RESET}")
-    tipo = validar_int("[1] Grama rasteira, [2] Grama de folha larga: ", [1, 2])
+    tipo = validar_int(
+        "[1] Grama rasteira, [2] Grama de folha larga: ", [1, 2])
     state.cultura_ativa.insumos.herbicida = "Glifosato" if tipo == 1 else "2,4-D"
     print(f"Herbicida: {state.cultura_ativa.insumos.herbicida}")
 
@@ -219,7 +222,8 @@ def definir_meio_aplicacao(state: FarmData) -> None:
     else:
         state.cultura_ativa.financeiro.metodo_aplicacao = "Drone Agrícola"
         state.cultura_ativa.financeiro.gastos = 15000
-    print(f"Método de aplicação: {state.cultura_ativa.financeiro.metodo_aplicacao}")
+    print(
+        f"Método de aplicação: {state.cultura_ativa.financeiro.metodo_aplicacao}")
 
 
 def calcular_financeiro(state: FarmData) -> None:
@@ -241,7 +245,7 @@ def calcular_financeiro(state: FarmData) -> None:
         produtividade = 3.2  # ton/ha
     else:
         produtividade = 0.0
-    
+
     receita = 6300 * hectares
     cultura.financeiro.peso_total = produtividade * hectares
     cultura.financeiro.lucro = receita - cultura.financeiro.gastos
@@ -286,7 +290,8 @@ def atualizar_dados(state: FarmData) -> None:
     for i, c in enumerate(state.culturas):
         print(f"{i+1} - {c.cultura or 'Não definida'} (Área: {c.area:.2f} m²)")
 
-    idx = validar_int("Escolha a cultura para atualizar: ", list(range(1, len(state.culturas)+1))) - 1
+    idx = validar_int("Escolha a cultura para atualizar: ",
+                      list(range(1, len(state.culturas)+1))) - 1
     state.cultura_ativa_idx = idx
     cultura = state.culturas[idx]
 
@@ -345,7 +350,8 @@ def zerar_dados(state: FarmData) -> None:
     print(f"{len(state.culturas)+1} - Deletar todas as culturas")
     print("0 - Voltar")
 
-    opcao = validar_int("Escolha opção: ", list(range(0, len(state.culturas)+2)))
+    opcao = validar_int("Escolha opção: ", list(
+        range(0, len(state.culturas)+2)))
 
     if opcao == 0:
         print(f"{AZUL}Retornando ao menu principal.{RESET}")
@@ -366,16 +372,20 @@ def zerar_dados(state: FarmData) -> None:
 def exportar_csv(state: FarmData) -> None:
     """Exporta dados de plantio e insumos para CSV."""
     if not state.culturas:
-        print(f"{VERMELHO}Não há dados válidos para exportação. Cadastre culturas.{RESET}")
+        print(
+            f"{VERMELHO}Não há dados válidos para exportação. Cadastre culturas.{RESET}")
         return
 
     registros = []
     for cultura in state.culturas:
         if cultura.cultura and cultura.area > 0:
             registros.extend([
-                {"cultura": cultura.cultura, "area": cultura.area, "tipo_insumo": "adubo", "qnt_insumo": cultura.insumos.adubo},
-                {"cultura": cultura.cultura, "area": cultura.area, "tipo_insumo": "agua", "qnt_insumo": cultura.insumos.agua},
-                {"cultura": cultura.cultura, "area": cultura.area, "tipo_insumo": "fosfato", "qnt_insumo": cultura.insumos.fosfato},
+                {"cultura": cultura.cultura, "area": cultura.area,
+                    "tipo_insumo": "adubo", "qnt_insumo": cultura.insumos.adubo},
+                {"cultura": cultura.cultura, "area": cultura.area,
+                    "tipo_insumo": "agua", "qnt_insumo": cultura.insumos.agua},
+                {"cultura": cultura.cultura, "area": cultura.area,
+                    "tipo_insumo": "fosfato", "qnt_insumo": cultura.insumos.fosfato},
             ])
 
     if not registros:
@@ -392,16 +402,19 @@ def executar_estatisticas_r() -> None:
     """Executa script estatisticas_basicas.r com dados exportados."""
     arquivo = "dados_plantio.csv"
     if not os.path.exists(arquivo):
-        print(f"{VERMELHO}Arquivo dados_plantio.csv não encontrado. Exporte antes.{RESET}")
+        print(
+            f"{VERMELHO}Arquivo dados_plantio.csv não encontrado. Exporte antes.{RESET}")
         return
 
     rscript_path = find_rscript()
     if not rscript_path:
-        print(f"{VERMELHO}Rscript não encontrado. Instale R ou adicione ao PATH.{RESET}")
+        print(
+            f"{VERMELHO}Rscript não encontrado. Instale R ou adicione ao PATH.{RESET}")
         return
 
     try:
-        resultado = subprocess.run([rscript_path, "estatisticas_basicas.r"], capture_output=True, text=True, check=True)
+        resultado = subprocess.run(
+            [rscript_path, "estatisticas_basicas.r"], capture_output=True, text=True, check=True)
         print(f"{VERDE}== Estatísticas (R) =={RESET}")
         print(resultado.stdout)
     except subprocess.CalledProcessError as exc:
@@ -412,25 +425,27 @@ def executar_estatisticas_r() -> None:
 
 def consultar_previsao_tempo() -> None:
     """Executa o script previsao_do_tempo.r com cidade escolhida pelo usuário."""
-    cidade = input(f"{AZUL}Digite o nome da cidade para consulta do tempo: {RESET}").strip()
+    cidade = input(
+        f"{AZUL}Digite o nome da cidade para consulta do tempo: {RESET}").strip()
     if not cidade:
         print(f"{AMARELO}Cidade não informada. Usando São Paulo como padrão.{RESET}")
         cidade = "São Paulo"
 
     rscript_path = find_rscript()
     if not rscript_path:
-        print(f"{VERMELHO}Rscript não encontrado. Instale R ou adicione ao PATH.{RESET}")
+        print(
+            f"{VERMELHO}Rscript não encontrado. Instale R ou adicione ao PATH.{RESET}")
         return
 
     try:
-        resultado = subprocess.run([rscript_path, "previsao_do_tempo.r", cidade], capture_output=True, text=True, check=True)
+        resultado = subprocess.run(
+            [rscript_path, "previsao_do_tempo.r", cidade], capture_output=True, text=True, check=True)
         print(f"{VERDE}== Previsão do tempo (R) =={RESET}")
         print(resultado.stdout)
     except subprocess.CalledProcessError as exc:
         print(f"{VERMELHO}Erro ao executar R: {exc.stderr}{RESET}")
     except FileNotFoundError:
         print(f"{VERMELHO}Rscript não encontrado.{RESET}")
-
 
 
 def menu() -> int:
@@ -462,7 +477,8 @@ def main() -> None:
                 calcular_insumos(state)
         elif opcao == 2:
             if not state.cultura_ativa:
-                print(f"{VERMELHO}Defina uma cultura ativa antes de configurar insumos.{RESET}")
+                print(
+                    f"{VERMELHO}Defina uma cultura ativa antes de configurar insumos.{RESET}")
                 continue
             definir_herbicida(state)
             definir_pesticida(state)
@@ -470,7 +486,8 @@ def main() -> None:
             definir_meio_aplicacao(state)
         elif opcao == 3:
             if not state.cultura_ativa:
-                print(f"{VERMELHO}Defina uma cultura ativa antes de calcular financeiro.{RESET}")
+                print(
+                    f"{VERMELHO}Defina uma cultura ativa antes de calcular financeiro.{RESET}")
                 continue
             calcular_financeiro(state)
             exibir_dados(state)

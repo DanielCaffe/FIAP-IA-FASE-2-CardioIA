@@ -1,3 +1,9 @@
+# Definir biblioteca pessoal para instalação de pacotes
+if (!dir.exists(Sys.getenv("R_LIBS_USER"))) {
+  dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)
+}
+.libPaths(c(Sys.getenv("R_LIBS_USER"), .libPaths()))
+
 # Instalação de pacotes necessários
 if (!require("httr")) install.packages("httr", repos="http://cran.r-project.org", quiet=TRUE)
 if (!require("jsonlite")) install.packages("jsonlite", repos="http://cran.r-project.org", quiet=TRUE)

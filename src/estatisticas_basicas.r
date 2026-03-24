@@ -1,11 +1,23 @@
+# Definir biblioteca pessoal para instalação de pacotes
+if (!dir.exists(Sys.getenv("R_LIBS_USER"))) {
+  dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)
+}
+.libPaths(c(Sys.getenv("R_LIBS_USER"), .libPaths()))
+
 # Carregar pacotes necessários (se ainda não estiverem instalados)
 if (!require("dplyr")) install.packages("dplyr")
 library(dplyr)
 
 # Leitura dos dados
-# Supondo que o arquivo CSV esteja no mesmo diretório do script
 # O CSV deve ter colunas: cultura, area, tipo_insumo, qnt_insumo
-dados <- read.csv("dados_plantio.csv", stringsAsFactors = FALSE)
+args <- commandArgs(trailingOnly = FALSE)
+script_path <- grep("^--file=", args, value = TRUE)
+if (length(script_path) == 0) {
+  script_dir <- getwd()
+} else {
+  script_dir <- dirname(sub("^--file=", "", script_path))
+}
+dados <- read.csv(file.path(script_dir, "..", "dados_plantio.csv"), stringsAsFactors = FALSE)
 
 # Visualizar os dados
 print("Dados de plantio:")
