@@ -1,0 +1,1 @@
+Tabela de referência: https://www.gov.br/conab/pt-br/atuacao/informacoes-agropecuarias/safras/safra-de-graos/boletim-da-safra-de-graos/6o-levantamento-safra-2025-26/site_previsao_de_safra-por_produto-mar-2026.xlsx
