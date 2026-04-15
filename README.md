@@ -7,26 +7,41 @@
 <br>
 
 # Nome do projeto
+**ATIVIDADE – FASE 2: Diagnóstico Automatizado – IA no Estetoscópio Digital**
 
 ## Nome do grupo
-
+Graduação - 2TIAOA - 2026/1
 ## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 5</a>
+- <a href="https://www.linkedin.com/in/danielcaffe">Daniel Caffé RM564440 </a>
+- Ednilton RM566069 </a>
+- Enrico RM561352 </a> 
+- Davi RM566336 </a>
 
 ## 👩‍🏫 Professores:
 ### Tutor(a) 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do Tutor</a>
+- <a href="https://www.linkedin.com/in/caique-nonato">Nome do Tutor</a>Caique Nonato
 ### Coordenador(a)
 - <a href="https://www.linkedin.com/company/inova-fusca">Nome do Coordenador</a>
 
 
 ## 📜 Descrição
 
-*Descreva seu projeto com base no texto do PBL (até 600 palavras)*
+Este projeto corresponde à **Fase 2 do CardioIA**, cujo objetivo é simular um sistema de diagnóstico automatizado em cardiologia utilizando técnicas de Inteligência Artificial.
+
+Nesta fase, foram desenvolvidas duas abordagens:
+
+### Parte 1 – Sistema baseado em regras
+Foi criado um sistema simples de apoio ao diagnóstico que:
+- lê frases de pacientes
+- identifica sintomas por correspondência textual
+- sugere diagnósticos com base em um mapa de conhecimento
+
+### Parte 2 – Classificação com Machine Learning
+Foi desenvolvido um classificador de texto que:
+- utiliza **TF-IDF** para transformar texto em dados numéricos
+- aplica **Regressão Logística**
+- classifica frases como **alto risco** ou **baixo risco**
+
 
 
 ## 📁 Estrutura de pastas
