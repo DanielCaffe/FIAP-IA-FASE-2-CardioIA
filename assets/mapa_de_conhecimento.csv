@@ -1,0 +1,35 @@
+﻿sintoma_1,sintoma_2,doenca_associada
+dor no peito,aperto no peito,Infarto Agudo do Miocárdio
+dor no peito,aperto no tórax,Infarto Agudo do Miocárdio
+dor no peito,suor frio,Infarto Agudo do Miocárdio
+dor no peito,vai pro braço,Infarto Agudo do Miocárdio
+dor no peito,enjoo,Infarto Agudo do Miocárdio
+dor no peito,piora com esforço,Angina
+aperto no peito,piora com esforço,Angina
+sem ar,piora ao subir escada,Angina
+falta de ar,dor no peito,Angina
+preciso parar pra respirar,andar um pouco,Angina
+muito cansado,sem energia,Insuficiência Cardíaca
+cansaço constante,fadiga,Insuficiência Cardíaca
+falta de ar ao deitar,acordo cansado,Insuficiência Cardíaca
+pernas inchadas,cansaço,Insuficiência Cardíaca
+inchaço nas pernas,dificuldade para ficar em pé,Insuficiência Cardíaca
+coração acelerado,coração disparado,Arritmia
+palpitações,coração acelerado,Arritmia
+coração disparado,ansiedade,Arritmia
+tontura,quase desmaiei,Arritmia
+desmaio,batimentos irregulares,Arritmia
+suor frio,enjoo,Síndrome Coronariana Aguda
+aperto no peito,suor frio,Síndrome Coronariana Aguda
+dor no peito,falta de ar intensa,Síndrome Coronariana Aguda
+falta de ar,quando deito,Edema Pulmonar/Cardiopatia
+acordo mais cansado,durmo mal por falta de ar,Edema Pulmonar/Cardiopatia
+sem ar,parar pra respirar,Dispneia de possível origem cardíaca
+tontura forte,medo de sair sozinho,Síncope de possível origem cardíaca
+pernas meio inchadas,cansado o tempo todo,Insuficiência Cardíaca
+dor no peito,nunca tive isso antes,Síndrome Coronariana Aguda
+coração acelerado à noite,atrapalha o sono,Arritmia
+coração fica acelerado,coração acelerado,Arritmia
+à noite,atrapalhando o sono,Arritmia
+coração disparado,ansiedade,Arritmia
+coração fica disparado,ansiedade,Arritmia
